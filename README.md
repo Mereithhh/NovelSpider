@@ -1,7 +1,7 @@
 # NovelSpider
 基于scrapy的小说爬虫：爬取笔趣阁的制定小说并下载到txt，速度很快哦。
 
-![image](https://github.com/cs3cx4g/NovelSpider/tree/master/img/NovelSpider1.gif)
+![image](https://github.com/cs3cx4g/NovelSpider/blob/master/img/NovelSpider1.gif)
 
 
 ## 前言
