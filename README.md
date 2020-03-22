@@ -1,5 +1,7 @@
 # NovelSpider
 基于scrapy的小说爬虫：爬取笔趣阁的制定小说并下载到txt，速度很快哦。
+![](https://pic.cs3cx4g.cn/img/NovelSpider1.gif-slim)
+
 
 ## 前言
 
@@ -19,7 +21,7 @@
 ## 使用说明
 ### 依赖
 需要安装：
-> scrapy
+> scrapy<br>
 > requests
 
 直接`pip instal scrapy requests`即可，如果`scrapy`安装不了需要编译没成功的话，那么到[这个网站](http://www.lfd.uci.edu/~gohlke/pythonlibs/)下载自己对应编译好的再用pip安装即可
