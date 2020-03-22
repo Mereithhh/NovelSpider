@@ -6,17 +6,17 @@
 
 ## 前言
 
-最近一直在学爬虫，从最基本的`urllib`到`requests`、`beautifulsoup`到分布式爬虫框架`scrapy`,现在终于感觉可以上路了。所以先基于`scrapy`重写了我以前做的小说爬虫，代码都很简单，就不注释了。相关的知识点在我的python爬虫系列文章后面都会介绍到。
-主要的参考文献：
+最近一直在学爬虫，从最基本的`urllib`到`requests`、`beautifulsoup`到分布式爬虫框架`scrapy`,现在终于感觉可以上路了。所以先基于`scrapy`重写了我以前做的小说爬虫，代码都很简单，就不注释了。相关的知识点在我的python爬虫系列文章后面都会介绍到。<br>
+主要的参考文献：<br>
 > * [scrapy官方文档(无中文)](https://docs.scrapy.org/en/latest/)
 > * [python官方文档(有中文)](https://docs.python.org/zh-cn/3/)
 
 ## 思路
 
-1.搜索小说名，用`requests+lxml`爬取结果，并让用户选择结果，返回小说目录的`url`<br>
-2.`scrapy`根据目录url解析小说章节数以及每章的具体url，其中把小说章节数送给`item`再到`itempipeline`保存，每章的url则是生成异步请求，结果送给`parse_chapter`进行下一步的解析<br>
-3.`parse_chapter`解析每一章的内容，替换没用的`\xa0`，写入到`item`里，返回交给`pipeline`处理<br>
-4.对于`pipeline`为了写入文件章节顺序是对的，每次返回的`item`都先保存到包括当前章节`编号和内容`的字典里<br>
+1.搜索小说名，用`requests+lxml`爬取结果，并让用户选择结果，返回小说目录的`url`<br><br>
+2.`scrapy`根据目录url解析小说章节数以及每章的具体url，其中把小说章节数送给`item`再到`itempipeline`保存，每章的url则是生成异步请求，结果送给`parse_chapter`进行下一步的解析<br><br>
+3.`parse_chapter`解析每一章的内容，替换没用的`\xa0`，写入到`item`里，返回交给`pipeline`处理<br><br>
+4.对于`pipeline`为了写入文件章节顺序是对的，每次返回的`item`都先保存到包括当前章节`编号和内容`的字典里<br><br>
 5.爬取完毕，对字典进行排序，写入到小说文件中<br>
 
 ## 使用说明
